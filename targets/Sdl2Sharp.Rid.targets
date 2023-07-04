@@ -1,0 +1,33 @@
+<Project>
+    <PropertyGroup>
+        <RuntimeIdentifiers>win-x86;win-x64;osx-x64;osx-arm64;linux-x64</RuntimeIdentifiers>
+    </PropertyGroup>
+
+    <ItemGroup Condition="'$(RuntimeIdentifier)' == 'win-x86'">
+        <Content Include="$(PkgSdl2Sharp)/runtimes/win-x86/*.dll">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <Visible>false</Visible>
+        </Content>
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(RuntimeIdentifier)' == 'win-x64'">
+        <Content Include="$(PkgSdl2Sharp)/runtimes/win-x64/*.dll">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <Visible>false</Visible>
+        </Content>
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(RuntimeIdentifier)' == 'osx-x64' Or '$(RuntimeIdentifier)' == 'osx-arm64'">
+        <Content Include="$(PkgSdl2Sharp)/runtimes/osx-x64-arm64/*.dylib">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <Visible>false</Visible>
+        </Content>
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(RuntimeIdentifier)' == 'linux-x64'">
+        <Content Include="$(PkgSdl2Sharp)/runtimes/linux-x64/*.so">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <Visible>false</Visible>
+        </Content>
+    </ItemGroup>
+</Project>
