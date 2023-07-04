@@ -12,21 +12,21 @@
     </ItemGroup>
 
     <ItemGroup Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Windows)))' And !'$([System.Environment]::Is64BitOperatingSystem)'">
-        <Content Include="../../../runtimes/win-x86/SDL2.dll">
+        <Content Include="../../../runtimes/win-x86/*.dll">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
             <Visible>false</Visible>
         </Content>
     </ItemGroup>
 
     <ItemGroup Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Windows)))' And '$([System.Environment]::Is64BitOperatingSystem)'">
-        <Content Include="../../../runtimes/win-x64/SDL2.dll">
+        <Content Include="../../../runtimes/win-x64/*.dll">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
             <Visible>false</Visible>
         </Content>
     </ItemGroup>
 
     <ItemGroup Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::OSX)))'">
-        <Content Include="../../../runtimes/osx-x64-arm64/libSDL2.dylib">
+        <Content Include="../../../runtimes/osx-x64-arm64/*.dylib">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
             <Visible>false</Visible>
         </Content>

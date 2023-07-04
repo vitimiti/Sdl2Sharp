@@ -5,6 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <RootNamespace>Sdl2Sharp</RootNamespace>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <DefineTrace>true</DefineTrace>
   </PropertyGroup>
 
@@ -21,5 +22,73 @@
     <DebugType>none</DebugType>
     <Optimize>true</Optimize>
   </PropertyGroup>
+
+  <PropertyGroup>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>2.0.20-alpha</Version>
+    <Title>Sdl2Sharp</Title>
+    <Authors>Victor Matia &lt;vmatir@gmail.com&gt;</Authors>
+    <Description>A wrapper for SDL2. The version supported is the latest version available in Ubuntu LTS (currently 22.04 - SDL2 v2.0.20).</Description>
+    <PackageProjectUrl>https://www.libsdl.org/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/vitimiti/Sdl2Sharp</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <PackageTags>SDL2;Wrapper</PackageTags>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="../../LICENSE.md">
+      <Pack>true</Pack>
+      <PackagePath>docs</PackagePath>
+      <Visible>false</Visible>
+    </Content>
+
+    <Content Include="../../README.md">
+      <Pack>true</Pack>
+      <PackagePath>docs</PackagePath>
+      <Visible>false</Visible>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="../../targets/Sdl2Sharp.NonRid.targets">
+      <Pack>true</Pack>
+      <PackagePath>targets</PackagePath>
+      <Visible>false</Visible>
+    </Content>
+
+    <Content Include="../../targets/Sdl2Sharp.Rid.targets">
+      <Pack>true</Pack>
+      <PackagePath>targets</PackagePath>
+      <Visible>false</Visible>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="../../runtimes/win-x86/*.dll">
+      <Pack>true</Pack>
+      <PackagePath>runtimes/win-x86</PackagePath>
+      <Visible>false</Visible>
+    </Content>
+
+    <Content Include="../../runtimes/win-x64/*.dll">
+      <Pack>true</Pack>
+      <PackagePath>runtimes/win-x64</PackagePath>
+      <Visible>false</Visible>
+    </Content>
+
+    <Content Include="../../runtimes/osx-x64-arm64/*.dylib">
+      <Pack>true</Pack>
+      <PackagePath>runtimes/osx-x64-arm64</PackagePath>
+      <Visible>false</Visible>
+    </Content>
+
+    <Content Include="../../runtimes/linux-x64/*.so">
+      <Pack>true</Pack>
+      <PackagePath>runtimes/linux-x64</PackagePath>
+      <Visible>false</Visible>
+    </Content>
+  </ItemGroup>
 
 </Project>
