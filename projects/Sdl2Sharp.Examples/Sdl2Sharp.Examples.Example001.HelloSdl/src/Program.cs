@@ -1,7 +1,9 @@
-﻿using Sdl2Sharp.Utilities;
+﻿using Sdl2Sharp;
+using Sdl2Sharp.Utilities;
 using Sdl2Sharp.Utilities.Log;
 
 Functions.SetLogPriority((int)MyCategories.LibraryInformation, Priority.Information);
+Functions.SetLogPriority((int)MyCategories.SubsystemInformation, Priority.Information);
 
 Functions.SetLogOutputFunction((data, category, priority, message) =>
 {
@@ -41,7 +43,14 @@ Functions.SetLogOutputFunction((data, category, priority, message) =>
 Functions.LogInformation((int)MyCategories.LibraryInformation,
     $"Running SDL v{NativeDllInformation.Version} [{NativeDllInformation.Revision}] on {Platform.Name}");
 
+using (new Subsystem(SubsystemFlags.Video))
+{
+    Functions.LogInformation((int)MyCategories.SubsystemInformation,
+        $"Running SDL with subsystems [{Subsystem.InitializedSubsystems}]");
+}
+
 internal enum MyCategories
 {
-    LibraryInformation = Category.Custom
+    LibraryInformation = Category.Custom,
+    SubsystemInformation
 }
