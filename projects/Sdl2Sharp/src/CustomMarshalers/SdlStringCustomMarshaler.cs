@@ -52,9 +52,4 @@ internal sealed class SdlStringCustomMarshaler : ICustomMarshaler
             _ => s_defaultInstance ??= new SdlStringCustomMarshaler(false)
         };
     }
-
-    public struct Cookies
-    {
-        public const string LeaveAllocated = "LeaveAllocatedCookie";
-    }
 }

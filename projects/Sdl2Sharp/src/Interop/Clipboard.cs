@@ -16,7 +16,7 @@ internal static partial class Sdl
         CharSet = CharSet.Ansi)]
     [return:
         MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(SdlStringCustomMarshaler),
-            MarshalCookie = SdlStringCustomMarshaler.Cookies.LeaveAllocated)]
+            MarshalCookie = Cookies.LeaveAllocated)]
     public static extern string GetClipboardText();
 
     [DllImport(LibraryName, EntryPoint = "SDL_HasClipboardText", CallingConvention = CallingConvention.Cdecl)]

@@ -75,9 +75,4 @@ internal sealed class VoidPointerCustomMarshaler : ICustomMarshaler
             _ => s_defaultInstance ??= new VoidPointerCustomMarshaler(false)
         };
     }
-
-    public struct Cookies
-    {
-        public const string LeaveAllocated = "LeaveAllocatedCookie";
-    }
 }

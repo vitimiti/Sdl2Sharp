@@ -23,7 +23,7 @@ public static class Functions
     [UnmanagedFunctionPointer(CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
     public delegate void LogOutputFunction(
         [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(VoidPointerCustomMarshaler),
-            MarshalCookie = VoidPointerCustomMarshaler.Cookies.LeaveAllocated)]
+            MarshalCookie = Cookies.LeaveAllocated)]
         object userData, int category, Priority priority,
         [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(SdlStringCustomMarshaler))]
         string message);

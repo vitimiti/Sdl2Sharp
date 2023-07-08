@@ -70,13 +70,13 @@ internal static partial class Sdl
     [DllImport(LibraryName, EntryPoint = "SDL_LogGetOutputFunction")]
     public static extern void LogGetOutputFunction(out Functions.LogOutputFunction callback,
         [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(VoidPointerCustomMarshaler),
-            MarshalCookie = VoidPointerCustomMarshaler.Cookies.LeaveAllocated)]
+            MarshalCookie = Cookies.LeaveAllocated)]
         [Out]
         out object userData);
 
     [DllImport(LibraryName, EntryPoint = "SDL_LogSetOutputFunction")]
     public static extern void LogSetOutputFunction(Functions.LogOutputFunction callback,
         [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(VoidPointerCustomMarshaler),
-            MarshalCookie = VoidPointerCustomMarshaler.Cookies.LeaveAllocated)]
+            MarshalCookie = Cookies.LeaveAllocated)]
         object userData);
 }

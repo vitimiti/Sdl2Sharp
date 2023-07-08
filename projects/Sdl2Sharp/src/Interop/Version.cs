@@ -12,7 +12,7 @@ internal static partial class Sdl
     [DllImport(LibraryName, EntryPoint = "SDL_GetRevision", CallingConvention = CallingConvention.Cdecl)]
     [return:
         MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(SdlStringCustomMarshaler),
-            MarshalCookie = SdlStringCustomMarshaler.Cookies.LeaveAllocated)]
+            MarshalCookie = Cookies.LeaveAllocated)]
     public static extern string GetRevision();
 
     [StructLayout(LayoutKind.Sequential)]
