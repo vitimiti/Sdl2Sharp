@@ -45,9 +45,7 @@ public sealed class ClipboardException : ExternalException
     /// <summary>Initializes a new instance of the <see langword="ClipboardException" /> class from serialization data.</summary>
     /// <param name="info">The object that holds the serialized object data.</param>
     /// <param name="context">The contextual information about the source or destination.</param>
-    /// <exception cref="ArgumentNullException">
-    ///     <paramref name="info" /> is <see langword="null" />.
-    /// </exception>
+    /// <exception cref="ArgumentNullException"><paramref name="info" /> is <see langword="null" />.</exception>
     public ClipboardException(SerializationInfo info, StreamingContext context) : base(info, context)
     {
     }
