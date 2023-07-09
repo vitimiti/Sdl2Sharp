@@ -71,7 +71,6 @@ internal static partial class Sdl
     public static extern void LogGetOutputFunction(out Functions.LogOutputFunction callback,
         [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(VoidPointerCustomMarshaler),
             MarshalCookie = Cookies.LeaveAllocated)]
-        [Out]
         out object userData);
 
     [DllImport(LibraryName, EntryPoint = "SDL_LogSetOutputFunction")]
