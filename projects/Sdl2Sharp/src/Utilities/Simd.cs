@@ -1,5 +1,6 @@
 using System.Runtime.InteropServices;
 
+using Sdl2Sharp.Exceptions;
 using Sdl2Sharp.Interop;
 using Sdl2Sharp.SafeHandles;
 
@@ -14,6 +15,10 @@ public sealed class Simd : IDisposable
     public Simd(uint length)
     {
         Handle = Sdl.SimdAllocate(new CULong(length));
+        if (Handle.IsClosed || Handle.IsInvalid)
+        {
+            throw new SimdException(Sdl.GetError());
+        }
     }
 
     /// <summary>Get the internal <see cref="SimdSafeHandle" />.</summary>
@@ -34,5 +39,9 @@ public sealed class Simd : IDisposable
     {
         SimdSafeHandle previousHandle = Handle;
         Handle = Sdl.SimdReallocate(previousHandle, new CULong(length));
+        if (Handle.IsClosed || Handle.IsInvalid)
+        {
+            throw new SimdException(Sdl.GetError());
+        }
     }
 }
