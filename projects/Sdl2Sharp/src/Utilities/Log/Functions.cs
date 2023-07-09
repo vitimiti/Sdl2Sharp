@@ -10,7 +10,7 @@ public static class Functions
 {
     /// <summary>The prototype for the log output callback function.</summary>
     /// <param name="userData">An <see cref="object" /> to pass as user data to the log function.</param>
-    /// <param name="category">An <see cref="int" /> with the category, either from <see cref="Category" /> or a custom one.</param>
+    /// <param name="category">An <see cref="Enum" /> with the category, either from <see cref="Category" /> or a custom one.</param>
     /// <param name="priority">The <see cref="Priority" /> for the logging function.</param>
     /// <param name="message">A <see cref="string" /> with the message to log.</param>
     /// <remarks>
@@ -36,19 +36,27 @@ public static class Functions
     }
 
     /// <summary>Set the priority of a particular log category.</summary>
-    /// <param name="category">An <see cref="int" /> with the category, either from <see cref="Category" /> or a custom one.</param>
+    /// <param name="category">An <see cref="Enum" /> with the category, either from <see cref="Category" /> or a custom one.</param>
     /// <param name="priority">The <see cref="Priority" /> to assign.</param>
-    public static void SetLogPriority(int category, Priority priority)
+    /// <typeparam name="T">An <see cref="Enum" /> containing the <paramref name="category" />.</typeparam>
+    public static void SetLogPriority<T>(T category, Priority priority) where T : Enum
     {
-        Sdl.LogSetPriority(category, priority);
+        Sdl.LogSetPriority((int)Convert.ChangeType(category, typeof(int)), priority);
     }
 
     /// <summary>Get the <see cref="Priority" /> of a particular log category.</summary>
-    /// <param name="category">An <see cref="int" /> with the category, either from <see cref="Category" /> or a custom one.</param>
+    /// <param name="category">An <see cref="Enum" /> with the category, either from <see cref="Category" /> or a custom one.</param>
+    /// <typeparam name="T">An <see cref="Enum" /> containing the <paramref name="category" />.</typeparam>
     /// <returns>The <see cref="Priority" /> of the <paramref name="category" />.</returns>
-    public static Priority GetLogPriority(int category)
+    public static Priority GetLogPriority<T>(T category) where T : Enum
     {
-        return Sdl.LogGetPriority(category);
+        return Sdl.LogGetPriority((int)Convert.ChangeType(category, typeof(int)));
+    }
+
+    /// <summary>Reset all log priorities to their default.</summary>
+    public static void ResetLogPriorities()
+    {
+        Sdl.LogResetPriorities();
     }
 
     /// <summary>
@@ -62,60 +70,67 @@ public static class Functions
     }
 
     /// <summary>Log a <paramref name="message" /> with priority <see cref="Priority.Verbose" />.</summary>
-    /// <param name="category">An <see cref="int" /> with the category, either from <see cref="Category" /> or a custom one.</param>
+    /// <param name="category">An <see cref="Enum" /> with the category, either from <see cref="Category" /> or a custom one.</param>
     /// <param name="message">A <see cref="string" /> with the message to log.</param>
-    public static void LogVerbose(int category, string message)
+    /// <typeparam name="T">An <see cref="Enum" /> containing the <paramref name="category" />.</typeparam>
+    public static void LogVerbose<T>(T category, string message) where T : Enum
     {
-        Sdl.LogVerbose(category, message);
+        Sdl.LogVerbose((int)Convert.ChangeType(category, typeof(int)), message);
     }
 
     /// <summary>Log a <paramref name="message" /> with priority <see cref="Priority.Debug" />.</summary>
-    /// <param name="category">An <see cref="int" /> with the category, either from <see cref="Category" /> or a custom one.</param>
+    /// <param name="category">An <see cref="Enum" /> with the category, either from <see cref="Category" /> or a custom one.</param>
     /// <param name="message">A <see cref="string" /> with the message to log.</param>
-    public static void LogDebug(int category, string message)
+    /// <typeparam name="T">An <see cref="Enum" /> containing the <paramref name="category" />.</typeparam>
+    public static void LogDebug<T>(T category, string message) where T : Enum
     {
-        Sdl.LogDebug(category, message);
+        Sdl.LogDebug((int)Convert.ChangeType(category, typeof(int)), message);
     }
 
     /// <summary>Log a <paramref name="message" /> with priority <see cref="Priority.Information" />.</summary>
-    /// <param name="category">An <see cref="int" /> with the category, either from <see cref="Category" /> or a custom one.</param>
+    /// <param name="category">An <see cref="Enum" /> with the category, either from <see cref="Category" /> or a custom one.</param>
     /// <param name="message">A <see cref="string" /> with the message to log.</param>
-    public static void LogInformation(int category, string message)
+    /// <typeparam name="T">An <see cref="Enum" /> containing the <paramref name="category" />.</typeparam>
+    public static void LogInformation<T>(T category, string message) where T : Enum
     {
-        Sdl.LogInformation(category, message);
+        Sdl.LogInformation((int)Convert.ChangeType(category, typeof(int)), message);
     }
 
     /// <summary>Log a <paramref name="message" /> with priority <see cref="Priority.Warning" />.</summary>
-    /// <param name="category">An <see cref="int" /> with the category, either from <see cref="Category" /> or a custom one.</param>
+    /// <param name="category">An <see cref="Enum" /> with the category, either from <see cref="Category" /> or a custom one.</param>
     /// <param name="message">A <see cref="string" /> with the message to log.</param>
-    public static void LogWarning(int category, string message)
+    /// <typeparam name="T">An <see cref="Enum" /> containing the <paramref name="category" />.</typeparam>
+    public static void LogWarning<T>(T category, string message) where T : Enum
     {
-        Sdl.LogWarning(category, message);
+        Sdl.LogWarning((int)Convert.ChangeType(category, typeof(int)), message);
     }
 
     /// <summary>Log a <paramref name="message" /> with priority <see cref="Priority.Error" />.</summary>
-    /// <param name="category">An <see cref="int" /> with the category, either from <see cref="Category" /> or a custom one.</param>
+    /// <param name="category">An <see cref="Enum" /> with the category, either from <see cref="Category" /> or a custom one.</param>
     /// <param name="message">A <see cref="string" /> with the message to log.</param>
-    public static void LogError(int category, string message)
+    /// <typeparam name="T">An <see cref="Enum" /> containing the <paramref name="category" />.</typeparam>
+    public static void LogError<T>(T category, string message) where T : Enum
     {
-        Sdl.LogError(category, message);
+        Sdl.LogError((int)Convert.ChangeType(category, typeof(int)), message);
     }
 
     /// <summary>Log a <paramref name="message" /> with priority <see cref="Priority.Critical" />.</summary>
-    /// <param name="category">An <see cref="int" /> with the category, either from <see cref="Category" /> or a custom one.</param>
+    /// <param name="category">An <see cref="Enum" /> with the category, either from <see cref="Category" /> or a custom one.</param>
     /// <param name="message">A <see cref="string" /> with the message to log.</param>
-    public static void LogCritical(int category, string message)
+    /// <typeparam name="T">An <see cref="Enum" /> containing the <paramref name="category" />.</typeparam>
+    public static void LogCritical<T>(T category, string message) where T : Enum
     {
-        Sdl.LogCritical(category, message);
+        Sdl.LogCritical((int)Convert.ChangeType(category, typeof(int)), message);
     }
 
     /// <summary>Log a <paramref name="message" />.</summary>
-    /// <param name="category">An <see cref="int" /> with the category, either from <see cref="Category" /> or a custom one.</param>
+    /// <param name="category">An <see cref="Enum" /> with the category, either from <see cref="Category" /> or a custom one.</param>
     /// <param name="priority">A <see cref="Priority" /> with the message priority.</param>
     /// <param name="message">A <see cref="string" /> with the message to log.</param>
-    public static void LogMessage(int category, Priority priority, string message)
+    /// <typeparam name="T">An <see cref="Enum" /> containing the <paramref name="category" />.</typeparam>
+    public static void LogMessage<T>(T category, Priority priority, string message) where T : Enum
     {
-        Sdl.LogMessage(category, priority, message);
+        Sdl.LogMessage((int)Convert.ChangeType(category, typeof(int)), priority, message);
     }
 
     /// <summary>Get the current <see cref="LogOutputFunction" /> and its user data.</summary>
