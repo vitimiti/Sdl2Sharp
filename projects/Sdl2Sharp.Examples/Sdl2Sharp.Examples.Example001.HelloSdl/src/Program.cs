@@ -45,7 +45,7 @@ Functions.LogInformation(MyCategories.LibraryInformation,
     $"Using SDL v{NativeDllInformation.Version} [{NativeDllInformation.Revision}] on {Platform.Name}");
 
 Functions.LogInformation(MyCategories.CpuInformation, $"Logical Cores: {CpuInformation.LogicalCores}");
-Functions.LogInformation(MyCategories.CpuInformation, $"Cache Line Size: {CpuInformation.CacheLineSize}");
+Functions.LogInformation(MyCategories.CpuInformation, $"Cache Line Size: {CpuInformation.CacheLineSize}B");
 Functions.LogInformation(MyCategories.CpuInformation, $"System RAM: {CpuInformation.SystemRam}MB");
 Functions.LogInformation(MyCategories.CpuInformation, $"CPU has the RDTSC instruction: {CpuInformation.HasRdtsc}");
 Functions.LogInformation(MyCategories.CpuInformation, $"CPU has AltiVec features: {CpuInformation.HasAltiVec}");
