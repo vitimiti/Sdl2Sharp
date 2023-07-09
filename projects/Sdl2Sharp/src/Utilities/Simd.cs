@@ -6,6 +6,7 @@ using Sdl2Sharp.SafeHandles;
 namespace Sdl2Sharp.Utilities;
 
 /// <summary>A class to manage SIMD memory.</summary>
+/// <remarks>This class inherits from the <see cref="IDisposable" /> interface and should be treated as such.</remarks>
 public sealed class Simd : IDisposable
 {
     /// <summary>Create a SIMD compatible memory block.</summary>
